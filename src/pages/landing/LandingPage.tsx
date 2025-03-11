@@ -192,7 +192,7 @@ const LandingPage: React.FC = () => {
             
             <div className="hidden md:flex md:items-center md:space-x-6">
               <Link to="/login" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Log in
+                Try Demo
               </Link>
               <a
                 href="#book-demo"
