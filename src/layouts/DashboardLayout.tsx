@@ -72,7 +72,7 @@ const DashboardLayout: React.FC = () => {
           <div className="flex flex-shrink-0 items-center px-4">
             <div className="flex items-center">
               <RogerLogo className="h-8 w-8 text-white" />
-              <span className="ml-2 text-2xl font-bold text-white">RogerDats</span>
+              <span className="ml-2 text-2xl font-bold text-white">Roger Data</span>
             </div>
           </div>
           
@@ -111,7 +111,7 @@ const DashboardLayout: React.FC = () => {
           <div className="flex h-16 flex-shrink-0 items-center px-4">
             <div className="flex items-center">
               <RogerLogo className="h-8 w-8 text-white" />
-              <span className="ml-2 text-2xl font-bold text-white">RogerDats</span>
+              <span className="ml-2 text-2xl font-bold text-white">Roger Data</span>
             </div>
           </div>
           <div className="flex flex-1 flex-col overflow-y-auto">
