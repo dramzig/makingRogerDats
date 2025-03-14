@@ -48,10 +48,10 @@ const LandingPage: React.FC = () => {
     if (typedRef.current) {
       const typed = new Typed(typedRef.current, {
         strings: [
-          'No-code AutoML for ^1000 Analysts^1000\n',
-          'No-code AutoML for ^1000 Project Managers^1000\n',
-          'No-code AutoML for ^1000 Data Scientists^1000\n',
-          'No-code AutoML for ^1000 Everyone^1000\n'
+          'No-code AutoML for <br>^1000 Analysts^1000\n',
+          'No-code AutoML for <br>^1000 Project Managers^1000\n',
+          'No-code AutoML for <br>^1000 Data Scientists^1000\n',
+          'No-code AutoML for <br>^1000 Everyone^1000\n'
         ],
         typeSpeed: 50,
         backSpeed: 30,
@@ -165,23 +165,28 @@ const LandingPage: React.FC = () => {
   const steps = [
     {
       number: '01',
-      title: 'Import Financial Data',
-      description: 'Securely connect your financial data sources and import historical records.',
+      title: 'Import Data',
+      description: 'Upload the training dataset',
     },
     {
       number: '02',
-      title: 'Configure ML Models',
-      description: 'Choose from pre-built financial models or customize parameters to your needs.',
+      title: 'Select target',
+      description: 'Choose the variable you want to predict',
     },
     {
       number: '03',
-      title: 'Train & Validate',
-      description: 'Automatically train and validate models using your historical data.',
+      title: 'Model type',
+      description: 'Select the model type: Regression or Classification',
     },
     {
       number: '04',
-      title: 'Deploy & Monitor',
-      description: 'Deploy models to production with real-time monitoring and compliance tracking.',
+      title: 'Evaluate',
+      description: 'Compare the performance of different models',
+    },
+    {
+      number: '05',
+      title: 'Deploy',
+      description: 'Deploy your model to start making predictions',
     },
   ];
 
@@ -192,45 +197,40 @@ const LandingPage: React.FC = () => {
       duration: '14 days',
       features: [
         'Up to 50,000 predictions/month',
-        '2 concurrent models',
-        'Basic model templates',
+        '1 concurrent models',
+        'Wizard prediction only',
         'Community support',
-        'Standard API access',
         'Basic reporting'
       ],
-      cta: 'Start Free Trial',
+      cta: 'Try Demo',
       popular: false
     },
     {
       name: 'Starter',
-      price: 500,
+      price: '500',
       duration: 'per month',
       features: [
         'Up to 200,000 predictions/month',
         '5 concurrent models',
-        'All model templates',
+        'Wizard prediction',
+        'Basic model parameters',
         'Email support',
-        'Advanced API access',
         'Custom reporting',
-        'Model versioning',
-        'Basic compliance tools'
+        'Model versioning'
       ],
       cta: 'Talk to Sales',
       popular: false
     },
     {
       name: 'Professional',
-      price: 1500,
+      price: '1,500',
       duration: 'per month',
       features: [
         'Up to 1M predictions/month',
         '15 concurrent models',
-        'Custom model development',
+        'Wizard prediction',
+        'Advance model parameters',
         'Priority support',
-        'Premium API access',
-        'Advanced analytics',
-        'Full audit trails',
-        'Compliance dashboard',
         'Model monitoring',
         'Team collaboration'
       ],
@@ -239,17 +239,16 @@ const LandingPage: React.FC = () => {
     },
     {
       name: 'Enterprise',
-      price: 3000,
+      price: '3,000',
       duration: 'per month',
       features: [
-        'Unlimited predictions',
-        'Unlimited models',
-        'Custom solutions',
-        '24/7 dedicated support',
-        'Enterprise API',
-        'Advanced security',
-        'Full compliance suite',
-        'Custom integrations',
+        'Up to 10M predictions/month',
+        '50 concurrent models',
+        'Wizard prediction',
+        'Advance model parameters',
+        'Priority support',
+        'Model monitoring',
+        'Team collaboration',
         'On-premise deployment',
         'SLA guarantee'
       ],
@@ -260,7 +259,7 @@ const LandingPage: React.FC = () => {
 
   const faqs = [
     {
-      question: 'How does RogerData ensure data security?',
+      question: 'How does Roger Data ensure data security?',
       answer: 'We implement bank-grade security measures including end-to-end encryption, SOC 2 compliance, and regular security audits to protect your sensitive financial data.',
     },
     {
@@ -273,7 +272,7 @@ const LandingPage: React.FC = () => {
     },
     {
       question: 'How quickly can we deploy new models?',
-      answer: 'Most standard models can be deployed within hours. Custom models typically take 1-2 weeks for development and validation.',
+      answer: 'Most standard models can be deployed within hours. Custom models typically take 1-2 hours for development and validation.',
     },
     {
       question: 'What kind of support do you provide?',
@@ -282,16 +281,23 @@ const LandingPage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-white relative">
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="absolute -inset-[10px] bg-gradient-to-r from-indigo-500/50 via-purple-500/50 to-pink-500/50 blur-3xl opacity-70 animate-gradient"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-br from-violet-500/50 to-orange-500/50 rounded-full blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-bl from-blue-500/50 to-emerald-500/50 rounded-full blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-pink-500/50 to-yellow-500/50 rounded-full blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
       <Helmet>
-        <title>RogerData - Enterprise Financial Machine Learning Platform</title>
+        <title>Roger Data - AutoML Platform for Banking</title>
         <meta
           name="description"
-          content="Enterprise-grade machine learning platform for banks and financial institutions. Build and deploy credit scoring, risk management, and fraud detection models."
+          content="Enterprise-grade AutoML platform for banks and financial institutions. Build and deploy credit scoring, risk management, and fraud detection models without writing code."
         />
         <meta
           name="keywords"
-          content="financial ML, credit scoring, risk management, fraud detection, banking AI, machine learning platform"
+          content="AutoML platform, financial ML, credit scoring, risk management, fraud detection, banking AI, machine learning platform, no-code ML"
         />
         <link rel="canonical" href="https://rogerdata.app" />
       </Helmet>
@@ -302,7 +308,7 @@ const LandingPage: React.FC = () => {
             <div className="flex items-center">
               <Link to="/" className="flex items-center">
                 <RogerLogo className="h-8 w-8 text-indigo-600" />
-                <span className="ml-2 text-2xl font-bold text-gray-900">RogerData</span>
+                <span className="ml-2 text-2xl font-bold text-gray-900">Roger Data</span>
               </Link>
             </div>
 
@@ -338,7 +344,7 @@ const LandingPage: React.FC = () => {
                   to="/login"
                   className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                 >
-                  Log in
+                  Try Demo
                 </Link>
                 <a
                   href="#book-demo"
@@ -356,7 +362,7 @@ const LandingPage: React.FC = () => {
         <div className="relative pt-16">
           <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
             <div
-              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-orange-400 to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
               style={{
                 clipPath:
                   'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
@@ -371,32 +377,35 @@ const LandingPage: React.FC = () => {
                   <span ref={typedRef}></span>
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Enterprise-grade machine learning platform designed specifically for banks and financial institutions. Build, deploy, and monitor ML models with confidence.
+                  Enterprise-grade AutoML platform designed for banking. 
+                </p>
+                <p className="mt-6 text-lg leading-8 text-gray-600 font-semibold">
+                  Deploy in 5 simple steps! 
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <Link
                     to="/login"
                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Start Free Trial
+                    Try Demo
                   </Link>
                   <a
                     href="#book-demo"
-                    className="text-sm font-semibold leading-6 text-gray-900"
+                    className="text-sm font-semibold leading-6 text-orange-600 hover:text-orange-500"
                   >
-                    Schedule Demo <span aria-hidden="true">→</span>
+                    Book Demo <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
 
               <div className="mt-16 flow-root sm:mt-24">
-                <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                <div className="-m-2 rounded-xl gray-900/5 ring-1 ring-inset ring-gray-900/10  lg:rounded-2xl">
                   <div className="rounded-md shadow-2xl ring-1 ring-gray-900/10">
                     <div className="relative">
-                      <div className="absolute inset-0 rounded-md bg-gradient-to-tr from-indigo-600 to-indigo-400 opacity-10"></div>
+                      <div className="absolute inset-0 rounded-md bg-gradient-to-tr"></div>
                       <img
-                        src="rogerdats.png"
-                        alt="Rogerdata platform interface showing ML models for financial analysis"
+                        src="rogerdata_wizard.png"
+                        alt="Roger Data platform interface showing ML models for financial analysis"
                         className="w-full rounded-md"
                       />
                     </div>
@@ -410,14 +419,14 @@ const LandingPage: React.FC = () => {
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-indigo-600">
+              <h2 className="text-base font-semibold leading-7 text-orange-600">
                 Financial ML Solutions
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Comprehensive ML Solutions for Financial Services
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                From credit scoring to fraud detection, our platform provides all the tools you need to implement advanced ML solutions in your financial institution.
+                From credit scoring to fraud detection, our platform provides all the tools you need to implement advanced ML solutions.
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -426,7 +435,7 @@ const LandingPage: React.FC = () => {
                   <div key={benefit.title} className="flex flex-col">
                     <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                       <benefit.icon
-                        className="h-5 w-5 flex-none text-indigo-600"
+                        className="h-5 w-5 flex-none text-orange-600"
                         aria-hidden="true"
                       />
                       {benefit.title}
@@ -444,7 +453,7 @@ const LandingPage: React.FC = () => {
         <div className="bg-gray-50 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-indigo-600">
+              <h2 className="text-base font-semibold leading-7 text-orange-600">
                 How it works
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -455,18 +464,21 @@ const LandingPage: React.FC = () => {
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-5">
                 {steps.map((step) => (
-                  <div key={step.title} className="flex flex-col">
-                    <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                      <span className="text-2xl font-bold text-indigo-600">
+                  <div key={step.title} className="relative flex flex-col items-center text-center">
+                    <dt className="flex flex-col items-center gap-y-2 text-base font-semibold leading-7 text-gray-900">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100 text-2xl font-bold text-orange-600">
                         {step.number}
                       </span>
                       {step.title}
                     </dt>
-                    <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                    <dd className="mt-2 flex flex-auto flex-col text-sm leading-6 text-gray-600">
                       <p className="flex-auto">{step.description}</p>
                     </dd>
+                    {step.number !== '05' && (
+                      <div className="absolute left-full top-12 hidden h-[2px] w-16 -translate-y-1/2 bg-orange-200 lg:block"></div>
+                    )}
                   </div>
                 ))}
               </dl>
@@ -477,9 +489,9 @@ const LandingPage: React.FC = () => {
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-indigo-600">Pricing</h2>
+              <h2 className="text-base font-semibold leading-7 text-orange-600">Pricing</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Choose the Right Plan for Your Institution
+                Choose the Right Plan for You
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 Flexible pricing options designed to scale with your ML needs
@@ -539,11 +551,11 @@ const LandingPage: React.FC = () => {
                     </ul>
                   </div>
                   <a
-                    href={plan.price === 0 ? '/signup' : '#book-demo'}
+                    href={plan.price === 0 ? '/login' : '#book-demo'}
                     className={`mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                       plan.popular
                         ? 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-indigo-600'
-                        : 'bg-white text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300'
+                        : 'bg-white text-orange-600 ring-1 ring-inset ring-orange-200 hover:ring-orange-300'
                     }`}
                   >
                     {plan.cta}
@@ -557,14 +569,14 @@ const LandingPage: React.FC = () => {
         <div id="book-demo" className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-indigo-600">
+              <h2 className="text-base font-semibold leading-7 text-orange-600">
                 Book a Demo
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 See Roger in Action
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Schedule a personalized demo to learn how Roger Data can transform your financial institution's ML capabilities.
+                Schedule a personalized demo to learn how Roger Data can transform your data to opportunities.
               </p>
             </div>
 
@@ -588,7 +600,7 @@ const LandingPage: React.FC = () => {
                       id="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -606,7 +618,7 @@ const LandingPage: React.FC = () => {
                       id="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -615,7 +627,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="company"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Financial Institution
+                    Company
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -624,7 +636,7 @@ const LandingPage: React.FC = () => {
                       id="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -642,7 +654,7 @@ const LandingPage: React.FC = () => {
                       id="position"
                       value={formData.position}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -651,7 +663,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="companySize"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Institution size
+                    Company size
                   </label>
                   <div className="mt-2.5">
                     <select
@@ -659,10 +671,10 @@ const LandingPage: React.FC = () => {
                       id="companySize"
                       value={formData.companySize}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                     >
                       <option value="">Select size</option>
-                       <option value="1-100">1-100 employees</option>
+                      <option value="1-100">1-100 employees</option>
                       <option value="101-500">101-500 employees</option>
                       <option value="501-1000">501-1,000 employees</option>
                       <option value="1001-5000">1,001-5,000 employees</option>
@@ -684,7 +696,7 @@ const LandingPage: React.FC = () => {
                       id="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -705,14 +717,14 @@ const LandingPage: React.FC = () => {
         <div className="bg-gray-50 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-indigo-600">
+              <h2 className="text-base font-semibold leading-7 text-orange-600">
                 FAQ
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Frequently asked questions
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Common questions about our financial ML platform
+                Common questions about Roger Data
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl">
@@ -736,16 +748,16 @@ const LandingPage: React.FC = () => {
       <footer className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
           <div className="flex justify-center space-x-6 md:order-2">
-            <Link to="/login" className="text-gray-400 hover:text-gray-500">
+            <Link to="/login" className="text-gray-400 hover:text-orange-500">
               Try Demo
             </Link>
-            <a href="#book-demo" className="text-gray-400 hover:text-gray-500">
+            <a href="#book-demo" className="text-gray-400 hover:text-orange-500">
               Book a Demo
             </a>
           </div>
           <div className="mt-8 md:order-1 md:mt-0">
             <p className="text-center text-xs leading-5 text-gray-500">
-              &copy; 2025 RogerData. All rights reserved.
+              &copy; 2025 Roger Data. All rights reserved.
             </p>
           </div>
         </div>
@@ -772,4 +784,4 @@ const LandingPage: React.FC = () => {
   );
 };
 
-export default LandingPage;
+export default LandingPage
