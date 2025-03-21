@@ -56,8 +56,8 @@ const translations = {
     
     // How it works section
     'howItWorks.title': 'How it works',
-    'howItWorks.heading': 'Deploy Financial ML Models in Minutes',
-    'howItWorks.description': 'Our platform streamlines the process of building and deploying ML models for financial applications.',
+    'howItWorks.heading': 'Deploy ML Models in Minutes',
+    'howItWorks.description': 'Our platform streamlines the process of building and deploying Machine Learning models',
     
     // Pricing section
     'pricing.title': 'Pricing',
@@ -88,7 +88,9 @@ const translations = {
     'pricing.features.prioritySupport': 'Priority support',
     'pricing.features.modelMonitoring': 'Model monitoring',
     'pricing.features.teamCollaboration': 'Team collaboration',
-    'pricing.features.onPremise': 'On-premise deployment',
+    'pricing.features.user': 'User',
+    'pricing.features.users': 'Users',
+    'pricing.features.onPremise': 'Private deployment',
     'pricing.features.sla': 'SLA guarantee',
     'pricing.cta.tryDemo': 'Try Demo',
     'pricing.cta.talkToSales': 'Talk to Sales',
@@ -98,7 +100,7 @@ const translations = {
     'faq.heading': 'Frequently asked questions',
     'faq.description': 'Common questions about Roger Data',
     'faq.security.question': 'How does Roger Data ensure data security?',
-    'faq.security.answer': 'We implement bank-grade security measures including end-to-end encryption, SOC 2 compliance, and regular security audits to protect your sensitive financial data.',
+    'faq.security.answer': 'We implement bank-grade security measures including end-to-end encryption, SOC 2 compliance, and regular security audits to protect your sensitive data.',
     'faq.customization.question': 'Can we customize models for our specific needs?',
     'faq.customization.answer': 'Yes! Our platform allows for extensive customization of ML models to match your specific risk assessment criteria and business rules.',
     'faq.compliance.question': 'Do you support regulatory compliance?',
@@ -172,8 +174,8 @@ const translations = {
     
     // How it works section
     'howItWorks.title': 'Cómo funciona',
-    'howItWorks.heading': 'Implementa Modelos ML Financieros en Minutos',
-    'howItWorks.description': 'Nuestra plataforma simplifica el proceso de construcción e implementación de modelos ML para aplicaciones financieras.',
+    'howItWorks.heading': 'Implementa Modelos ML en Minutos',
+    'howItWorks.description': 'Nuestra plataforma simplifica el proceso de construcción e implementación de modelos de Machine Learning',
     
     // Pricing section
     'pricing.title': 'Precios',
@@ -204,7 +206,9 @@ const translations = {
     'pricing.features.prioritySupport': 'Soporte prioritario',
     'pricing.features.modelMonitoring': 'Monitoreo de modelos',
     'pricing.features.teamCollaboration': 'Colaboración en equipo',
-    'pricing.features.onPremise': 'Implementación on-premise',
+    'pricing.features.user': 'Usuario',
+    'pricing.features.users': 'Usuarios',
+    'pricing.features.onPremise': 'Implementación privada',
     'pricing.features.sla': 'Garantía de SLA',
     'pricing.cta.tryDemo': 'Probar Demo',
     'pricing.cta.talkToSales': 'Hablar con Ventas',
@@ -214,7 +218,7 @@ const translations = {
     'faq.heading': 'Preguntas frecuentes',
     'faq.description': 'Preguntas comunes sobre Roger Data',
     'faq.security.question': '¿Cómo garantiza Roger Data la seguridad de los datos?',
-    'faq.security.answer': 'Implementamos medidas de seguridad de nivel bancario, incluyendo encriptación de extremo a extremo, cumplimiento SOC 2 y auditorías regulares de seguridad para proteger sus datos financieros sensibles.',
+    'faq.security.answer': 'Implementamos medidas de seguridad de nivel bancario, incluyendo encriptación de extremo a extremo, cumplimiento SOC 2 y auditorías regulares de seguridad para proteger sus datos sensibles.',
     'faq.customization.question': '¿Podemos personalizar los modelos para nuestras necesidades específicas?',
     'faq.customization.answer': '¡Sí! Nuestra plataforma permite una amplia personalización de modelos ML para adaptarse a sus criterios específicos de evaluación de riesgos y reglas de negocio.',
     'faq.compliance.question': '¿Soportan el cumplimiento regulatorio?',

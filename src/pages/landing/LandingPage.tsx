@@ -51,10 +51,10 @@ const LandingPage: React.FC = () => {
     if (typedRef.current) {
       const typed = new Typed(typedRef.current, {
         strings: [
-          'No-code AutoML for <br>^1000 Analysts^1000\n',
-          'No-code AutoML for <br>^1000 Project Managers^1000\n',
-          'No-code AutoML for <br>^1000 Data Scientists^1000\n',
-          'No-code AutoML for <br>^1000 Everyone^1000\n'
+          t('hero.analysts') + '^1000\n',
+          t('hero.projectManagers') + '^1000\n',
+          t('hero.dataScientists') + '^1000\n',
+          t('hero.everyone') + '^1000\n'
         ],
         typeSpeed: 50,
         backSpeed: 30,
@@ -68,7 +68,7 @@ const LandingPage: React.FC = () => {
         typed.destroy();
       };
     }
-  }, []);
+  }, [t]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -199,11 +199,12 @@ const LandingPage: React.FC = () => {
       price: 0,
       duration: t('pricing.freeTrial.duration'),
       features: [
+        '1 '+t('pricing.features.user'),
         t('pricing.features.predictions').replace('{count}', '50,000'),
         t('pricing.features.concurrentModels').replace('{count}', '1'),
         t('pricing.features.wizardPrediction'),
         t('pricing.features.communitySupport'),
-        t('pricing.features.basicReporting')
+        //t('pricing.features.basicReporting')
       ],
       cta: t('pricing.cta.tryDemo'),
       popular: false
@@ -213,13 +214,15 @@ const LandingPage: React.FC = () => {
       price: '500',
       duration: t('pricing.starter.duration'),
       features: [
+        '1 '+t('pricing.features.user'),
         t('pricing.features.predictions').replace('{count}', '200,000'),
         t('pricing.features.concurrentModels').replace('{count}', '5'),
         t('pricing.features.wizardPredictionFull'),
         t('pricing.features.basicParameters'),
         t('pricing.features.emailSupport'),
-        t('pricing.features.customReporting'),
-        t('pricing.features.modelVersioning')
+        
+        //t('pricing.features.customReporting'),
+        //t('pricing.features.modelVersioning')
       ],
       cta: t('pricing.cta.talkToSales'),
       popular: false
@@ -229,13 +232,15 @@ const LandingPage: React.FC = () => {
       price: '1,500',
       duration: t('pricing.professional.duration'),
       features: [
-        t('pricing.features.predictions').replace('{count}', '1M'),
+        '5 '+t('pricing.features.users'),
+        t('pricing.features.predictions').replace('{count}', '1,000,000'),
         t('pricing.features.concurrentModels').replace('{count}', '15'),
         t('pricing.features.wizardPredictionFull'),
         t('pricing.features.advancedParameters'),
         t('pricing.features.prioritySupport'),
-        t('pricing.features.modelMonitoring'),
-        t('pricing.features.teamCollaboration')
+        
+        
+        
       ],
       cta: t('pricing.cta.talkToSales'),
       popular: true
@@ -245,15 +250,16 @@ const LandingPage: React.FC = () => {
       price: '3,000',
       duration: t('pricing.enterprise.duration'),
       features: [
-        t('pricing.features.predictions').replace('{count}', '10M'),
+        '15 '+t('pricing.features.users'),
+        t('pricing.features.predictions').replace('{count}', '10,000,000'),
         t('pricing.features.concurrentModels').replace('{count}', '50'),
         t('pricing.features.wizardPredictionFull'),
         t('pricing.features.advancedParameters'),
         t('pricing.features.prioritySupport'),
-        t('pricing.features.modelMonitoring'),
-        t('pricing.features.teamCollaboration'),
+        //t('pricing.features.modelMonitoring'),
+        t('pricing.features.modelVersioning'),
         t('pricing.features.onPremise'),
-        t('pricing.features.sla')
+        //t('pricing.features.sla')
       ],
       cta: t('pricing.cta.talkToSales'),
       popular: false
@@ -511,14 +517,7 @@ const LandingPage: React.FC = () => {
                   }`}
                 >
                   <div>
-                    {plan.popular && (
-                      <div className="mb-4">
-                        <span className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-600">
-                          <CheckCircle2 className="h-4 w-4" />
-                          {t('pricing.mostPopular')}
-                        </span>
-                      </div>
-                    )}
+                    
                     <div className="flex items-center justify-between gap-x-4">
                       <h3 className="text-lg font-semibold leading-8 text-gray-900">
                         {plan.name}
