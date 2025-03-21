@@ -244,6 +244,7 @@ const Credits: React.FC = () => {
                         ? 'border-transparent text-white bg-indigo-600 hover:bg-indigo-700' 
                         : 'border-gray-300 text-indigo-600 bg-white hover:bg-gray-50'
                     }`}
+                    onClick={() => window.open('/login', '_blank')}
                   >
                     Buy Now
                   </button>

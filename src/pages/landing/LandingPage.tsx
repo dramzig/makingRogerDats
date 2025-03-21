@@ -29,12 +29,15 @@ import CookieConsent from 'react-cookie-consent';
 import { Helmet } from 'react-helmet-async';
 import RogerLogo from '../../components/RogerLogo';
 import Typed from 'typed.js';
+import { useLanguage } from '../../contexts/LanguageContext';
+import LanguageToggle from '../../components/LanguageToggle';
 
 const LandingPage: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const typedRef = useRef<HTMLSpanElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { language, t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -139,144 +142,144 @@ const LandingPage: React.FC = () => {
     }
   };
 
-  const benefits = [
+  const getBenefits = (t: (key: string) => string) => [
     {
       icon: LineChart,
-      title: 'Credit Scoring Models',
-      description: 'Build and deploy sophisticated credit risk models to assess creditworthiness accurately.',
+      title: t('benefits.creditScoring.title'),
+      description: t('benefits.creditScoring.description'),
     },
     {
       icon: Shield,
-      title: 'Fraud Detection',
-      description: 'Real-time fraud detection systems powered by advanced machine learning algorithms.',
+      title: t('benefits.fraudDetection.title'),
+      description: t('benefits.fraudDetection.description'),
     },
     {
       icon: Scale,
-      title: 'Risk Management',
-      description: 'Comprehensive risk assessment and management solutions for financial institutions.',
+      title: t('benefits.riskManagement.title'),
+      description: t('benefits.riskManagement.description'),
     },
     {
       icon: PhoneCall,
-      title: 'Collections Optimization',
-      description: 'Smart collection strategies with ML-powered best time to call predictions.',
+      title: t('benefits.collections.title'),
+      description: t('benefits.collections.description'),
     },
   ];
 
-  const steps = [
+  const getSteps = (t: (key: string) => string) => [
     {
       number: '01',
-      title: 'Import Data',
-      description: 'Upload the training dataset',
+      title: t('steps.import.title'),
+      description: t('steps.import.description'),
     },
     {
       number: '02',
-      title: 'Select target',
-      description: 'Choose the variable you want to predict',
+      title: t('steps.target.title'),
+      description: t('steps.target.description'),
     },
     {
       number: '03',
-      title: 'Model type',
-      description: 'Select the model type: Regression or Classification',
+      title: t('steps.modelType.title'),
+      description: t('steps.modelType.description'),
     },
     {
       number: '04',
-      title: 'Evaluate',
-      description: 'Compare the performance of different models',
+      title: t('steps.evaluate.title'),
+      description: t('steps.evaluate.description'),
     },
     {
       number: '05',
-      title: 'Deploy',
-      description: 'Deploy your model to start making predictions',
+      title: t('steps.deploy.title'),
+      description: t('steps.deploy.description'),
     },
   ];
 
-  const pricingPlans = [
+  const getPricingPlans = (t: (key: string) => string) => [
     {
-      name: 'Free Trial',
+      name: t('pricing.freeTrial.name'),
       price: 0,
-      duration: '14 days',
+      duration: t('pricing.freeTrial.duration'),
       features: [
-        'Up to 50,000 predictions/month',
-        '1 concurrent models',
-        'Wizard prediction only',
-        'Community support',
-        'Basic reporting'
+        t('pricing.features.predictions').replace('{count}', '50,000'),
+        t('pricing.features.concurrentModels').replace('{count}', '1'),
+        t('pricing.features.wizardPrediction'),
+        t('pricing.features.communitySupport'),
+        t('pricing.features.basicReporting')
       ],
-      cta: 'Try Demo',
+      cta: t('pricing.cta.tryDemo'),
       popular: false
     },
     {
-      name: 'Starter',
+      name: t('pricing.starter.name'),
       price: '500',
-      duration: 'per month',
+      duration: t('pricing.starter.duration'),
       features: [
-        'Up to 200,000 predictions/month',
-        '5 concurrent models',
-        'Wizard prediction',
-        'Basic model parameters',
-        'Email support',
-        'Custom reporting',
-        'Model versioning'
+        t('pricing.features.predictions').replace('{count}', '200,000'),
+        t('pricing.features.concurrentModels').replace('{count}', '5'),
+        t('pricing.features.wizardPredictionFull'),
+        t('pricing.features.basicParameters'),
+        t('pricing.features.emailSupport'),
+        t('pricing.features.customReporting'),
+        t('pricing.features.modelVersioning')
       ],
-      cta: 'Talk to Sales',
+      cta: t('pricing.cta.talkToSales'),
       popular: false
     },
     {
-      name: 'Professional',
+      name: t('pricing.professional.name'),
       price: '1,500',
-      duration: 'per month',
+      duration: t('pricing.professional.duration'),
       features: [
-        'Up to 1M predictions/month',
-        '15 concurrent models',
-        'Wizard prediction',
-        'Advance model parameters',
-        'Priority support',
-        'Model monitoring',
-        'Team collaboration'
+        t('pricing.features.predictions').replace('{count}', '1M'),
+        t('pricing.features.concurrentModels').replace('{count}', '15'),
+        t('pricing.features.wizardPredictionFull'),
+        t('pricing.features.advancedParameters'),
+        t('pricing.features.prioritySupport'),
+        t('pricing.features.modelMonitoring'),
+        t('pricing.features.teamCollaboration')
       ],
-      cta: 'Talk to Sales',
+      cta: t('pricing.cta.talkToSales'),
       popular: true
     },
     {
-      name: 'Enterprise',
+      name: t('pricing.enterprise.name'),
       price: '3,000',
-      duration: 'per month',
+      duration: t('pricing.enterprise.duration'),
       features: [
-        'Up to 10M predictions/month',
-        '50 concurrent models',
-        'Wizard prediction',
-        'Advance model parameters',
-        'Priority support',
-        'Model monitoring',
-        'Team collaboration',
-        'On-premise deployment',
-        'SLA guarantee'
+        t('pricing.features.predictions').replace('{count}', '10M'),
+        t('pricing.features.concurrentModels').replace('{count}', '50'),
+        t('pricing.features.wizardPredictionFull'),
+        t('pricing.features.advancedParameters'),
+        t('pricing.features.prioritySupport'),
+        t('pricing.features.modelMonitoring'),
+        t('pricing.features.teamCollaboration'),
+        t('pricing.features.onPremise'),
+        t('pricing.features.sla')
       ],
-      cta: 'Talk to Sales',
+      cta: t('pricing.cta.talkToSales'),
       popular: false
     }
   ];
 
-  const faqs = [
+  const getFaqs = (t: (key: string) => string) => [
     {
-      question: 'How does Roger Data ensure data security?',
-      answer: 'We implement bank-grade security measures including end-to-end encryption, SOC 2 compliance, and regular security audits to protect your sensitive financial data.',
+      question: t('faq.security.question'),
+      answer: t('faq.security.answer'),
     },
     {
-      question: 'Can we customize models for our specific needs?',
-      answer: 'Yes! Our platform allows for extensive customization of ML models to match your specific risk assessment criteria and business rules.',
+      question: t('faq.customization.question'),
+      answer: t('faq.customization.answer'),
     },
     {
-      question: 'Do you support regulatory compliance?',
-      answer: 'Our platform is built with financial regulations in mind, supporting BASEL requirements, model validation, and comprehensive audit trails.',
+      question: t('faq.compliance.question'),
+      answer: t('faq.compliance.answer'),
     },
     {
-      question: 'How quickly can we deploy new models?',
-      answer: 'Most standard models can be deployed within hours. Custom models typically take 1-2 hours for development and validation.',
+      question: t('faq.deployment.question'),
+      answer: t('faq.deployment.answer'),
     },
     {
-      question: 'What kind of support do you provide?',
-      answer: 'We offer comprehensive support including technical assistance, model optimization, and regulatory compliance guidance.',
+      question: t('faq.support.question'),
+      answer: t('faq.support.answer'),
     },
   ];
 
@@ -290,7 +293,7 @@ const LandingPage: React.FC = () => {
         <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-pink-500/50 to-yellow-500/50 rounded-full blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
       <Helmet>
-        <title>Roger Data - AutoML Platform for Banking</title>
+        <title>Roger Data - AutoML Platform</title>
         <meta
           name="description"
           content="Enterprise-grade AutoML platform for banks and financial institutions. Build and deploy credit scoring, risk management, and fraud detection models without writing code."
@@ -313,11 +316,12 @@ const LandingPage: React.FC = () => {
             </div>
 
             <div className="hidden md:flex md:items-center md:space-x-6">
-              <Link to="/login" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Try Demo
+              <LanguageToggle />
+              <Link target="_blank" to="https://deft-cendol-f0c8fc.netlify.app/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                {t('nav.tryDemo')}
               </Link>
               <a href="#book-demo" className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700">
-                Book demo
+                {t('nav.bookDemo')}
               </a>
             </div>
 
@@ -341,16 +345,16 @@ const LandingPage: React.FC = () => {
             <div className="md:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2">
                 <Link
-                  to="/login"
+                  target="_blank" to="https://deft-cendol-f0c8fc.netlify.app/" 
                   className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                 >
-                  Try Demo
+                  {t('nav.tryDemo')}
                 </Link>
                 <a
                   href="#book-demo"
                   className="block rounded-md bg-indigo-600 px-3 py-2 text-base font-medium text-white hover:bg-indigo-700"
                 >
-                  Book demo
+                  {t('nav.bookDemo')}
                 </a>
               </div>
             </div>
@@ -377,23 +381,23 @@ const LandingPage: React.FC = () => {
                   <span ref={typedRef}></span>
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Enterprise-grade AutoML platform designed for banking. 
+                  {t('hero.subtitle')}
                 </p>
                 <p className="mt-6 text-lg leading-8 text-gray-600 font-semibold">
-                  Deploy in 5 simple steps! 
+                  {t('hero.steps')}
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <Link
-                    to="/login"
+                    target="_blank" to="https://deft-cendol-f0c8fc.netlify.app/" 
                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Try Demo
+                    {t('hero.cta.demo')}
                   </Link>
                   <a
                     href="#book-demo"
                     className="text-sm font-semibold leading-6 text-orange-600 hover:text-orange-500"
                   >
-                    Book Demo <span aria-hidden="true">→</span>
+                    {t('hero.cta.book')} <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
@@ -420,18 +424,18 @@ const LandingPage: React.FC = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
               <h2 className="text-base font-semibold leading-7 text-orange-600">
-                Financial ML Solutions
+                {t('benefits.title')}
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Comprehensive ML Solutions for Financial Services
+                {t('benefits.heading')}
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                From credit scoring to fraud detection, our platform provides all the tools you need to implement advanced ML solutions.
+                {t('benefits.description')}
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-                {benefits.map((benefit) => (
+                {getBenefits(t).map((benefit) => (
                   <div key={benefit.title} className="flex flex-col">
                     <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                       <benefit.icon
@@ -454,18 +458,18 @@ const LandingPage: React.FC = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
               <h2 className="text-base font-semibold leading-7 text-orange-600">
-                How it works
+                {t('howItWorks.title')}
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Deploy Financial ML Models in Minutes
+                {t('howItWorks.heading')}
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Our platform streamlines the process of building and deploying ML models for financial applications.
+                {t('howItWorks.description')}
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-5">
-                {steps.map((step) => (
+                {getSteps(t).map((step) => (
                   <div key={step.title} className="relative flex flex-col items-center text-center">
                     <dt className="flex flex-col items-center gap-y-2 text-base font-semibold leading-7 text-gray-900">
                       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100 text-2xl font-bold text-orange-600">
@@ -489,17 +493,17 @@ const LandingPage: React.FC = () => {
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base font-semibold leading-7 text-orange-600">Pricing</h2>
+              <h2 className="text-base font-semibold leading-7 text-orange-600">{t('pricing.title')}</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Choose the Right Plan for You
+                {t('pricing.heading')}
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Flexible pricing options designed to scale with your ML needs
+                {t('pricing.description')}
               </p>
             </div>
 
             <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-4">
-              {pricingPlans.map((plan) => (
+              {getPricingPlans(t).map((plan) => (
                 <div
                   key={plan.name}
                   className={`flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 ${
@@ -511,7 +515,7 @@ const LandingPage: React.FC = () => {
                       <div className="mb-4">
                         <span className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-600">
                           <CheckCircle2 className="h-4 w-4" />
-                          Most Popular
+                          {t('pricing.mostPopular')}
                         </span>
                       </div>
                     )}
@@ -550,8 +554,8 @@ const LandingPage: React.FC = () => {
                       ))}
                     </ul>
                   </div>
-                  <a
-                    href={plan.price === 0 ? '/login' : '#book-demo'}
+                  <a target={plan.price === 0 ? '_blank':''}
+                    href={plan.price === 0 ? 'https://deft-cendol-f0c8fc.netlify.app/' : '#book-demo'}
                     className={`mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                       plan.popular
                         ? 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-indigo-600'
@@ -570,13 +574,13 @@ const LandingPage: React.FC = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
               <h2 className="text-base font-semibold leading-7 text-orange-600">
-                Book a Demo
+                {t('demo.title')}
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                See Roger in Action
+                {t('demo.heading')}
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Schedule a personalized demo to learn how Roger Data can transform your data to opportunities.
+                {t('demo.description')}
               </p>
             </div>
 
@@ -591,7 +595,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="name"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Name
+                    {t('demo.form.name')}
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -609,7 +613,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="email"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Work email
+                    {t('demo.form.email')}
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -627,7 +631,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="company"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Company
+                    {t('demo.form.company')}
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -645,7 +649,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="position"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Job position
+                    {t('demo.form.position')}
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -663,7 +667,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="companySize"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Company size
+                    {t('demo.form.companySize')}
                   </label>
                   <div className="mt-2.5">
                     <select
@@ -687,7 +691,7 @@ const LandingPage: React.FC = () => {
                     htmlFor="phone"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    Phone number
+                    {t('demo.form.phone')}
                   </label>
                   <div className="mt-2.5">
                     <input
@@ -707,7 +711,7 @@ const LandingPage: React.FC = () => {
                   disabled={isSubmitting}
                   className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Book your demo'}
+                  {isSubmitting ? t('demo.form.submitting') : t('demo.form.submit')}
                 </button>
               </div>
             </form>
@@ -721,15 +725,15 @@ const LandingPage: React.FC = () => {
                 FAQ
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Frequently asked questions
+                {t('faq.heading')}
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Common questions about Roger Data
+                {t('faq.description')}
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl">
               <dl className="space-y-8">
-                {faqs.map((faq) => (
+                {getFaqs(t).map((faq) => (
                   <div key={faq.question} className="pt-6">
                     <dt className="text-lg font-semibold leading-7 text-gray-900">
                       {faq.question}
@@ -748,11 +752,11 @@ const LandingPage: React.FC = () => {
       <footer className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
           <div className="flex justify-center space-x-6 md:order-2">
-            <Link to="/login" className="text-gray-400 hover:text-orange-500">
-              Try Demo
+            <Link target="_blank" to="https://deft-cendol-f0c8fc.netlify.app/" className="text-gray-400 hover:text-orange-500">
+              {t('nav.tryDemo')}
             </Link>
             <a href="#book-demo" className="text-gray-400 hover:text-orange-500">
-              Book a Demo
+              {t('nav.bookDemo')}
             </a>
           </div>
           <div className="mt-8 md:order-1 md:mt-0">
@@ -784,4 +788,4 @@ const LandingPage: React.FC = () => {
   );
 };
 
-export default LandingPage
+export default LandingPage;

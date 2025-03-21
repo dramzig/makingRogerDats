@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
+import { LanguageProvider } from './contexts/LanguageContext';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Layouts
@@ -47,8 +48,9 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 function App() {
   return (
     <HelmetProvider>
-      <AuthProvider>
-        <Router>
+      <LanguageProvider>
+        <AuthProvider>
+          <Router>
           <Routes>
             {/* Landing Page */}
             <Route path="/" element={<LandingPage />} />
@@ -83,8 +85,9 @@ function App() {
             </Route>
           </Routes>
           <ToastContainer position="top-right" />
-        </Router>
-      </AuthProvider>
+          </Router>
+        </AuthProvider>
+      </LanguageProvider>
     </HelmetProvider>
   );
 }
